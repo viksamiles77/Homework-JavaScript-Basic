@@ -18,10 +18,13 @@
         <br />
         <br />
         <label for="readingStatus">Reading Status:</label>
-        <input type="text" placeholder="yes / no" required>
+        <select id="readingStatus" required>
+            <option value="true">Already Read</option>
+            <option value="false">Still Need to Read</option>
+        </select>
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button id="btn" type="submit">Submit</button>
     </form>
 
 
