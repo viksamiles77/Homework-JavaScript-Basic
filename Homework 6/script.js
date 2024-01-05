@@ -1,3 +1,7 @@
+const rowsInput = prompt('Enter the amount of rows you want.')
+const colsInput = prompt('Enter the amount of columns you want.')
+
+
 function createTable(rows, cols) {
     let body = document.getElementsByTagName('body')[0]; // selecting the body
     let table = document.createElement('table'); // creating table element
@@ -22,4 +26,5 @@ function createTable(rows, cols) {
 
 }
 
-createTable(5, 5);
+createTable(rowsInput, colsInput);
+
