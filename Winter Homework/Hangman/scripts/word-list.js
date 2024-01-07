@@ -1,11 +1,11 @@
 const wordList = [
     {
         word: "guitar",
-        hint: "A musical instrument with strings."
+        hint: "A musical instrument ."
     },
     {
-        word: "oxygen",
-        hint: "A colorless, odorless gas essential for life."
+        word: "Barcelona",
+        hint: "City in Spain and a football club."
     },
     {
         word: "mountain",
@@ -21,15 +21,15 @@ const wordList = [
     },
     {
         word: "football",
-        hint: "A popular sport played with a spherical ball."
+        hint: "A popular sport."
     },
     {
         word: "chocolate",
-        hint: "A sweet treat made from cocoa beans."
+        hint: "Kids love it."
     },
     {
-        word: "butterfly",
-        hint: "An insect with colorful wings and a slender body."
+        word: "cake",
+        hint: "Birthdays..."
     },
     {
         word: "history",
@@ -40,10 +40,6 @@ const wordList = [
         hint: "A savory dish consisting of a round, flattened base with toppings."
     },
     {
-        word: "jazz",
-        hint: "A genre of music characterized by improvisation and syncopation."
-    },
-    {
         word: "camera",
         hint: "A device used to capture and record images or videos."
     },
@@ -52,12 +48,8 @@ const wordList = [
         hint: "A precious gemstone known for its brilliance and hardness."
     },
     {
-        word: "adventure",
-        hint: "An exciting or daring experience."
-    },
-    {
-        word: "science",
-        hint: "The systematic study of the structure and behavior of the physical and natural world."
+        word: "oslo",
+        hint: "The capital of Norway."
     },
     {
         word: "bicycle",
@@ -80,24 +72,16 @@ const wordList = [
         hint: "A vast system of stars, gas, and dust held together by gravity."
     },
     {
-        word: "orchestra",
-        hint: "A large ensemble of musicians playing various instruments."
-    },
-    {
         word: "volcano",
         hint: "A mountain or hill with a vent through which lava, rock fragments, hot vapor, and gas are ejected."
     },
     {
-        word: "novel",
-        hint: "A long work of fiction, typically with a complex plot and characters."
+        word: "Madrid",
+        hint: "The capital of Spain."
     },
     {
-        word: "sculpture",
-        hint: "A three-dimensional art form created by shaping or combining materials."
-    },
-    {
-        word: "symphony",
-        hint: "A long musical composition for a full orchestra, typically in multiple movements."
+        word: "basketball",
+        hint: "Sport - shooting a ball into a hoop."
     },
     {
         word: "architecture",
@@ -124,8 +108,8 @@ const wordList = [
         hint: "A meteorological phenomenon that is caused by reflection, refraction, and dispersion of light."
     },
     {
-        word: "universe",
-        hint: "All existing matter, space, and time as a whole."
+        word: "paris",
+        hint: "The capital of France."
     },
     {
         word: "piano",
@@ -134,10 +118,6 @@ const wordList = [
     {
         word: "vacation",
         hint: "A period of time devoted to pleasure, rest, or relaxation."
-    },
-    {
-        word: "rainforest",
-        hint: "A dense forest characterized by high rainfall and biodiversity."
     },
     {
         word: "theater",
@@ -168,20 +148,8 @@ const wordList = [
         hint: "An optical instrument used to view distant objects in space."
     },
     {
-        word: "breeze",
-        hint: "A gentle wind."
-    },
-    {
-        word: "oasis",
-        hint: "A fertile spot in a desert where water is found."
-    },
-    {
         word: "photography",
         hint: "The art, process, or practice of creating images by recording light or other electromagnetic radiation."
-    },
-    {
-        word: "safari",
-        hint: "An expedition or journey, typically to observe wildlife in their natural habitat."
     },
     {
         word: "planet",
@@ -192,20 +160,12 @@ const wordList = [
         hint: "A large natural stream of water flowing in a channel to the sea, a lake, or another such stream."
     },
     {
-        word: "tropical",
-        hint: "Relating to or situated in the region between the Tropic of Cancer and the Tropic of Capricorn."
-    },
-    {
         word: "mysterious",
         hint: "Difficult or impossible to understand, explain, or identify."
     },
     {
         word: "enigma",
         hint: "Something that is mysterious, puzzling, or difficult to understand."
-    },
-    {
-        word: "paradox",
-        hint: "A statement or situation that contradicts itself or defies intuition."
     },
     {
         word: "puzzle",
@@ -228,35 +188,7 @@ const wordList = [
         hint: "A strong desire to know or learn something."
     },
     {
-        word: "unpredictable",
-        hint: "Not able to be foreseen or known beforehand; uncertain."
-    },
-    {
-        word: "obfuscate",
-        hint: "To confuse or bewilder someone; to make something unclear or difficult to understand."
-    },
-    {
-        word: "unveil",
-        hint: "To make known or reveal something previously secret or unknown."
-    },
-    {
-        word: "illusion",
-        hint: "A false perception or belief; a deceptive appearance or impression."
-    },
-    {
         word: "moonlight",
         hint: "The light from the moon."
-    },
-    {
-        word: "vibrant",
-        hint: "Full of energy, brightness, and life."
-    },
-    {
-        word: "nostalgia",
-        hint: "A sentimental longing or wistful affection for the past."
-    },
-    {
-        word: "brilliant",
-        hint: "Exceptionally clever, talented, or impressive."
     },
 ];

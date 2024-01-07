@@ -26,8 +26,8 @@ const getRandomWord = function () {
     const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = word;
     console.log(word);
-    // document.querySelector('.hint-text b').innerText = hint;
-    getHint();
+    document.querySelector('.hint-text b').innerText = hint;
+    // getHint();
     resetGame();
 }
 
@@ -35,6 +35,7 @@ const initGame = function (button, clickedLetter) {
     if (currentWord.includes(clickedLetter)) {
         [...currentWord].forEach(function (letter, index) {
             if (letter === clickedLetter) {
+                correctLetters.push(letter);
                 wordDisplay.querySelectorAll('li')[index].innerText = letter;
                 wordDisplay.querySelectorAll('li')[index].classList.add('guessed');
             }
@@ -46,6 +47,10 @@ const initGame = function (button, clickedLetter) {
 
     button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuess}`;
+
+    if (wrongGuessCount === maxGuess) return alert('You lost!');
+    if (correctLetters.length === currentWord.length) return alert('You won!');
+
 }
 
 for (let i = 97; i <= 122; i++) {
