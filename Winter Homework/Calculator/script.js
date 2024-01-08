@@ -27,9 +27,6 @@ function handleSymbol(symbol) {
             }
             flushOperation(parseInt(buffer));
             previousOperator = null;
-            // buffer = runningTotal;
-            // runningTotal = runningTotal;
-            break;
         case '←':
             if (buffer.length === 1) {
                 buffer = '0';
