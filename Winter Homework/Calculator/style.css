@@ -25,11 +25,12 @@ body {
 
 
 .display {
-    color: rgb(185, 185, 185);
+    color: rgb(255, 255, 255, .75);
     background-color: #000;
     text-align: end;
     overflow: auto;
     padding: 17px 10px 0 10px;
+    min-height: 36px;
 }
 
 .screen {
@@ -39,6 +40,7 @@ body {
     font-size: 35px;
     overflow: auto;
     padding: 0 10px 10px 10px;
+    min-height: 52px;
 }
 
 .calc-button-row {

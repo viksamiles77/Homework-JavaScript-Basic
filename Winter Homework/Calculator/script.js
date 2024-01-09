@@ -1,6 +1,7 @@
 let runningTotal = 0;
 let buffer = '0';
 let previousOperator;
+let isDecimal = false;
 
 const screen = document.querySelector('.screen');
 const display = document.querySelector('.display');
@@ -11,8 +12,7 @@ function buttonClick(value) {
     } else {
         handleNumber(value);
     }
-    display.innerText = buffer;
-    screen.innerText = runningTotal;
+    updateDisplay();
 }
 
 function handleSymbol(symbol) {
@@ -20,18 +20,23 @@ function handleSymbol(symbol) {
         case 'C':
             buffer = '0';
             runningTotal = 0;
+            isDecimal = false;
             break;
         case '=':
             if (previousOperator === null) {
-                return
+                return;
             }
-            flushOperation(parseInt(buffer));
+            flushOperation(parseFloat(buffer));
             previousOperator = null;
+            isDecimal = false;
+            updateDisplay(true); // Pass true to indicate the result
+            break;
         case '←':
             if (buffer.length === 1) {
                 buffer = '0';
+                isDecimal = false;
             } else {
-                buffer = buffer.substring(0, buffer.length - 1)
+                buffer = buffer.substring(0, buffer.length - 1);
             }
             break;
         case '+':
@@ -39,6 +44,9 @@ function handleSymbol(symbol) {
         case '×':
         case '÷':
             handleMath(symbol);
+            break;
+        case '.':
+            handleDecimal();
             break;
     }
 }
@@ -48,26 +56,27 @@ function handleMath(symbol) {
         return;
     }
 
-    const intBuffer = parseInt(buffer);
+    const floatBuffer = parseFloat(buffer);
 
     if (runningTotal === 0) {
-        runningTotal = intBuffer;
+        runningTotal = floatBuffer;
     } else {
-        flushOperation(intBuffer);
+        flushOperation(floatBuffer);
     }
     previousOperator = symbol;
     buffer = '0';
+    isDecimal = false;
 }
 
-function flushOperation(intBuffer) {
+function flushOperation(floatBuffer) {
     if (previousOperator === '+') {
-        runningTotal += intBuffer;
+        runningTotal += floatBuffer;
     } else if (previousOperator === '-') {
-        runningTotal -= intBuffer;
+        runningTotal -= floatBuffer;
     } else if (previousOperator === '×') {
-        runningTotal *= intBuffer
+        runningTotal *= floatBuffer;
     } else if (previousOperator === '÷') {
-        runningTotal /= intBuffer;
+        runningTotal /= floatBuffer;
     }
 }
 
@@ -79,10 +88,27 @@ function handleNumber(numberString) {
     }
 }
 
+function handleDecimal() {
+    if (!isDecimal) {
+        buffer += '.';
+        isDecimal = true;
+    }
+}
+
+function updateDisplay(isResult = false) {
+    if (isResult) {
+        screen.innerText = runningTotal;
+        display.innerText = '';
+    } else {
+        screen.innerText = runningTotal;
+        display.innerText = buffer + (previousOperator ? ' ' + previousOperator : '');
+    }
+}
+
 function init() {
     document.querySelector('.calc-buttons').addEventListener('click', function (event) {
         buttonClick(event.target.innerText);
-    })
+    });
 }
 
 init();
