@@ -4,31 +4,33 @@ const guessesText = document.querySelector('.guesses-text');
 const keyboardDiv = document.querySelector('.keyboard');
 const playAgainBtn = document.querySelector('#play-again');
 const hintBtn = document.querySelector('#hint');
+let wordHintCombo;
 
 let currentWord, correctLetters = [], wrongGuessCount;
 const maxGuess = 6;
 
 
 const getHint = function () {
-    document.querySelector('.hint-text b').innerText = hint;
+    document.querySelector('.hint-text b').innerText = wordHintCombo.hint;
 }
 
 const resetGame = function () {
     correctLetters = [];
     wrongGuessCount = 0;
     hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
+    getRandomWord();
     guessesText.innerText = `${wrongGuessCount} / ${maxGuess}`;
     keyboardDiv.querySelectorAll('button').forEach(btn => btn.disabled = false);
     wordDisplay.innerHTML = currentWord.split('').map(() => `<li class="letter"></li>`).join('');
 }
 
 const getRandomWord = function () {
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
-    currentWord = word;
-    console.log(word);
-    document.querySelector('.hint-text b').innerText = hint;
+    wordHintCombo = wordList[Math.floor(Math.random() * wordList.length)];
+    currentWord = wordHintCombo.word;
+    console.log(wordHintCombo.word);
+    // document.querySelector('.hint-text b').innerText = wordHintCombo.hint;
     // getHint();
-    resetGame();
+    // resetGame();
 }
 
 const initGame = function (button, clickedLetter) {
@@ -48,9 +50,14 @@ const initGame = function (button, clickedLetter) {
     button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuess}`;
 
-    if (wrongGuessCount === maxGuess) return alert('You lost!');
-    if (correctLetters.length === currentWord.length) return alert('You won!');
-
+    if (wrongGuessCount === maxGuess) {
+        alert('You lost!');
+        resetGame();
+    }
+    if (correctLetters.length === currentWord.length) {
+        alert('You won!');
+        resetGame();
+    }
 }
 
 for (let i = 97; i <= 122; i++) {
@@ -60,6 +67,6 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener('click', e => initGame(e.target, String.fromCharCode(i)));
 }
 
-getRandomWord();
+resetGame();
 playAgainBtn.addEventListener('click', getRandomWord);
 hintBtn.addEventListener('click', getHint)
