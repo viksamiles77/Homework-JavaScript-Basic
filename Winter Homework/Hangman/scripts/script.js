@@ -60,6 +60,7 @@ const initGame = function (button, clickedLetter) {
     }
 }
 
+// loop for generating buttons with all letters from keyboard
 for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
     button.innerText = String.fromCharCode(i);
@@ -67,6 +68,22 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener('click', e => initGame(e.target, String.fromCharCode(i)));
 }
 
+
+const handleKeyDown = function (event) {
+    // converting inputs to lowercase
+    const pressedKey = event.key.toLowerCase();
+    const letterButtons = keyboardDiv.querySelectorAll('button');
+
+    // check if the pressed key corresponds to any letter button
+    const matchingButton = Array.from(letterButtons).find(button => button.innerText.toLowerCase() === pressedKey);
+
+    // if a matching button is found, trigger the event
+    if (matchingButton) {
+        matchingButton.click();
+    }
+}
+document.addEventListener('keydown', handleKeyDown);
+
 resetGame();
-playAgainBtn.addEventListener('click', getRandomWord);
+playAgainBtn.addEventListener('click', resetGame);
 hintBtn.addEventListener('click', getHint)
