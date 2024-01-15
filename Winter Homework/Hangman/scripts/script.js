@@ -17,6 +17,7 @@ const getHint = function () {
 const resetGame = function () {
     correctLetters = [];
     wrongGuessCount = 0;
+    document.querySelector('.hint-text b').innerText = '';
     hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
     getRandomWord();
     guessesText.innerText = `${wrongGuessCount} / ${maxGuess}`;
